@@ -66,7 +66,7 @@ export default function AppNavbar() {
               </button>
               
               <button className="px-6 py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-md hover:shadow-lg">
-                SIGN IN
+                SIGN UP
               </button>
             </div>
 
@@ -118,7 +118,7 @@ export default function AppNavbar() {
                 LOG IN
               </button>
               <button className="w-full py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-200">
-                SIGN IN
+                SIGN UP
               </button>
             </div>
           </div>
