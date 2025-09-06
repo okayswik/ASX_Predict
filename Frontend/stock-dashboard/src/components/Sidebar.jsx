@@ -1,25 +1,64 @@
-import { ChevronFirst } from "lucide-react"
+import { Home, TrendingUp, BarChart3, History, Settings, HelpCircle } from "lucide-react";
 
-export default function Sidebar({children}){
-    return(
-        <>
-            <aside className="h-screen">
-                <nav className="h-full flex flex-col bg-white border-r shadow-sm">
-                    <div className="p-4 pb-2 flex justify-between items-center">
-                        <button className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100"> 
-                            <ChevronFirst/>
-                        </button>
-                    </div>
-                    <ul className="flex-1 px-3">{children}</ul>
+export default function Sidebar({ collapsed, mobileOpen, setMobileOpen }) {
+  const navItems = [
+    { label: "Home", icon: <Home className="w-5 h-5" /> },
+    { label: "Sentiment", icon: <TrendingUp className="w-5 h-5" /> },
+    { label: "Prediction", icon: <BarChart3 className="w-5 h-5" /> },
+    { label: "History", icon: <History className="w-5 h-5" /> },
+  ];
 
-                    <div className="border-t flex p-3">
-                        <img 
-                            src="Logo/Stock_Sense.png"
-                            className="w-10 h-10 rounded-md"
-                        />
-                    </div>
-                </nav>
-            </aside>
-        </>
-    )
+  const bottomItems = [
+    { label: "Settings", icon: <Settings className="w-5 h-5" /> },
+    { label: "Help", icon: <HelpCircle className="w-5 h-5" /> },
+  ];
+
+  return (
+    <>
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 bg-black/40 z-40 lg:hidden"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
+
+      <aside
+        className={`fixed top-16 left-0 h-[calc(100%-4rem)] bg-gray-900 text-white transition-all duration-300 z-50
+        ${collapsed ? "w-20" : "w-64"}
+        ${mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}`}
+      >
+        <nav className="flex flex-col h-full p-4">
+          {/* Top items */}
+          <ul className="flex-1 space-y-2">
+            {navItems.map((item) => (
+              <li key={item.label}>
+                <a
+                  href="#"
+                  className="flex items-center gap-3 p-2 rounded-md hover:bg-gray-800 transition"
+                >
+                  {item.icon}
+                  {!collapsed && <span>{item.label}</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {/* Bottom items */}
+          <ul className="space-y-2 border-t border-gray-700 pt-2">
+            {bottomItems.map((item) => (
+              <li key={item.label}>
+                <a
+                  href="#"
+                  className="flex items-center gap-3 p-2 rounded-md hover:bg-gray-800 transition"
+                >
+                  {item.icon}
+                  {!collapsed && <span>{item.label}</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </aside>
+    </>
+  );
 }
