@@ -1,4 +1,5 @@
 import { Menu, X } from "lucide-react";
+import {Link} from "react-router-dom" ;
 
 export default function Navbar({ collapsed, setCollapsed, mobileOpen, setMobileOpen }) {
   const handleToggle = () => {
@@ -35,10 +36,10 @@ export default function Navbar({ collapsed, setCollapsed, mobileOpen, setMobileO
 
       {/* Center: Nav links (desktop only) */}
       <div className="hidden lg:flex gap-6 text-gray-700">
-        <a href="#" className="hover:text-black transition-colors">Dashboard</a>
-        <a href="#" className="hover:text-black transition-colors">Markets</a>
-        <a href="#" className="hover:text-black transition-colors">Portfolio</a>
-        <a href="#" className="hover:text-black transition-colors">News</a>
+        <Link to="/home" className="hover:text-black transition-colors">Dashboard</Link>
+        <Link to="/markets" className="hover:text-black transition-colors">Markets</Link>
+        <Link to="/portfolio" className="hover:text-black transition-colors">Portfolio</Link>
+        <Link to="/news" className="hover:text-black transition-colors">News</Link>
       </div>
 
       {/* Right: Search + Auth */}
