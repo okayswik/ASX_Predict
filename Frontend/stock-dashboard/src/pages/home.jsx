@@ -14,7 +14,7 @@ export default function Home(){  // Changed from StockDashboard to Home
     const [error, setError] = useState('');
 
     //Alpha Vantage API key (free tier)
-    const API_KEY = 'demo'; 
+    const API_KEY = '3CK6MPS1HMO1QGFQ'; 
 
     const fetchStockData = async (symbol) => {
         setLoading(true);
