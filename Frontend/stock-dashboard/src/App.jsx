@@ -5,7 +5,7 @@ import StickyNavbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 
 import Home from './pages/home';
-import Markets from './pages/market';
+import Market from './pages/market';
 
 function App() {
   const [collapsed, setCollapsed] = useState(false);
@@ -41,7 +41,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
-              <Route path="/market" element={<Markets />} />
+              <Route path="/market" element={<Market />} />
             </Routes>
           </main>
         </div>

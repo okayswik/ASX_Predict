@@ -37,7 +37,7 @@ export default function Navbar({ collapsed, setCollapsed, mobileOpen, setMobileO
       {/* Center: Nav links (desktop only) */}
       <div className="hidden lg:flex gap-6 text-gray-700">
         <Link to="/home" className="hover:text-black transition-colors">Dashboard</Link>
-        <Link to="/markets" className="hover:text-black transition-colors">Markets</Link>
+        <Link to="/market" className="hover:text-black transition-colors">Markets</Link>
         <Link to="/portfolio" className="hover:text-black transition-colors">Portfolio</Link>
         <Link to="/news" className="hover:text-black transition-colors">News</Link>
       </div>
