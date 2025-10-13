@@ -1,8 +1,9 @@
 import { Home, TrendingUp, BarChart3, History, Settings, HelpCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Sidebar({ collapsed, mobileOpen, setMobileOpen }) {
   const navItems = [
-    { label: "Home", icon: <Home className="w-5 h-5" /> },
+    { label: "Home", path: "/home" , icon: <Home className="w-5 h-5" /> },
     { label: "Sentiment", icon: <TrendingUp className="w-5 h-5" /> },
     { label: "Prediction", icon: <BarChart3 className="w-5 h-5" /> },
     { label: "History", icon: <History className="w-5 h-5" /> },
@@ -32,13 +33,14 @@ export default function Sidebar({ collapsed, mobileOpen, setMobileOpen }) {
           <ul className="flex-1 space-y-2">
             {navItems.map((item) => (
               <li key={item.label}>
-                <a
-                  href="#"
+                <Link
+                  to={item.path}
                   className="flex items-center gap-3 p-2 rounded-md hover:bg-gray-800 transition"
+                  onClick={() => setMobileOpen(false)} // closes sidebar on mobile
                 >
                   {item.icon}
                   {!collapsed && <span>{item.label}</span>}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
