@@ -7,6 +7,7 @@ import Sidebar from './components/Sidebar';
 import Home from './pages/home';
 import Market from './pages/market';
 import Portfolio from './pages/portfolio';
+import MarketNews from './pages/news';
 
 function App() {
   const [collapsed, setCollapsed] = useState(false);
@@ -44,6 +45,7 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/market" element={<Market />} />
               <Route path='/portfolio' element={<Portfolio/>} />
+              <Route path="/news" element={<MarketNews />} />
             </Routes>
           </main>
         </div>
