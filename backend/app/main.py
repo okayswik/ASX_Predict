@@ -1,8 +1,27 @@
 from flask import Flask, jsonify
 import yfinance as yf
+from model import predict_stock
 
 app = Flask(__name__)
 
+# ✅ Homepage route
+@app.route("/")
+def home():
+    return jsonify({
+        "message": "✅ Welcome to ASX Predict API",
+        "routes": {
+            "Get Stock Data": "/stock/<ticker>",
+            "Predict Stock": "/predict/<ticker>"
+        }
+    })
+
+# ✅ Prediction route
+@app.route("/predict/<ticker>")
+def predict(ticker):
+    result = predict_stock(ticker)
+    return jsonify(result)
+
+# ✅ Stock history route
 @app.route("/stock/<ticker>")
 def get_stock(ticker):
     try:
@@ -24,5 +43,6 @@ def get_stock(ticker):
         print("Error:", e)
         return jsonify({"error": str(e)}), 500
 
+# ✅ Run the app
 if __name__ == "__main__":
     app.run(debug=True)
